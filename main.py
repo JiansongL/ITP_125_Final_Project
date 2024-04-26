@@ -20,13 +20,18 @@ def crack_passwords(filename):
     # Read hashed passwords from the file
     hashed_passwords = read_hashes(filename)
     # maximum password length of 6 characters
-    for password_length in range(6, len(hashed_passwords) + 1):
+    for password_length in range(1, len(hashed_passwords) + 1):
         # Start the timer
         start_time = time.time()
         # Iterate over all possible passwords of given length
         found_password = False
         # Generate all possible passwords of given length
         for password in generate_passwords(password_length):
+            # add time limit
+            if time.time() - start_time > 180:  # Check if the time limit of 3 minutes is exceeded
+                print("Time limit exceeded")
+                passwrd_list.append("Time limit exceeded")  # Mark the password as "Time limit exceeded"
+                break
             # Generate the hash of the password and check if it matches any of the hashed passwords
             hashed_password = md5_hash(password)
             # If the hash is found in the list of hashed passwords, print the password and time taken

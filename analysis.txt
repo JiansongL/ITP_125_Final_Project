@@ -1,0 +1,3 @@
+The relationship to the length of the password and the time to crack is increasing. When the password is longer, the more combinations for  brute-force password cracking to try. Therefore it takes longer time to crack. The time complexity is O(2^n).
+To make the password go faster, we may use a dictionary attack which have normal combinations of password to try rather than using brute-force password cracking.
+The another way to hack the password is to get the password somehow and use the same password try to hack into differenct account.
